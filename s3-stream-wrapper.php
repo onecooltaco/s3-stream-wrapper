@@ -73,10 +73,13 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-s3-stream-wrapper.php';
  *
  * @since    1.0.0
  */
-function run_s3_stream_wrapper() {
+function run_s3_stream_wrapper( $bucket ) {
 
-	$plugin = new S3_Stream_Wrapper();
+	$plugin = new S3_Stream_Wrapper( $bucket );
 	$plugin->run();
 
 }
-run_s3_stream_wrapper();
+
+if ( defined( 'S3_USE_STREAM_WRAPPER' ) && true === S3_USE_STREAM_WRAPPER && !empty( S3_BUCKET ) ) {
+	run_s3_stream_wrapper();
+}

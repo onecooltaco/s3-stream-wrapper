@@ -300,7 +300,7 @@ class S3_Stream_Wrapper {
 		$upload_path = trailingslashit( $this->get_upload_path() );
 		$file_path   = $upload_path . $file_name;
 
-		$check_file_name = $this->validate_file_name( $file_path );
+		$check_file_name = $this->validate_file_name( $file_name );
 		if ( is_wp_error( $check_file_name ) ) {
 			$file['error'] = $check_file_name->get_error_message();
 
@@ -345,17 +345,17 @@ class S3_Stream_Wrapper {
 	 *
 	 * @return  WP_Error|string        Filename string if file name is supported. Else false.
 	 */
-	protected function validate_file_name( $file_path ) {
-		$text_encoding = mb_detect_encoding( $file_path );
+	protected function validate_file_name( $file_name ) {
+		$text_encoding = mb_detect_encoding( $file_name );
 		if ( 'ASCII' !== $text_encoding ) {
 			// convert $text to ASCII
-			$step1 = iconv( $text_encoding, 'ASCII//TRANSLIT', $file_path );
+			$step1 = iconv( $text_encoding, 'ASCII//TRANSLIT', $file_name );
 			// replace spaces and unknown characters with hyphens
 			$step2 = sanitize_file_name( $step1 );
-			$file_path = $step2;
+			$file_name = $step2;
 		}
 
-		return $file_path;
+		return $file_name;
 	}
 
 	/**

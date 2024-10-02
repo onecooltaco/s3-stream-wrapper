@@ -81,5 +81,5 @@ function run_s3_stream_wrapper( $bucket ) {
 }
 
 if ( defined( 'S3_USE_STREAM_WRAPPER' ) && true === S3_USE_STREAM_WRAPPER && !empty( S3_BUCKET ) ) {
-	run_s3_stream_wrapper();
+	run_s3_stream_wrapper( S3_BUCKET );
 }

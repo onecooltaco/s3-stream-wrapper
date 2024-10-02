@@ -192,7 +192,7 @@ class S3_Stream_Wrapper {
 		$this->loader->run();
 
 		// Create and register stream
-		$this->s3_client = new Aws\S3\S3Client( 'version' => 'latest' );
+		$this->s3_client = new Aws\S3\S3Client( ['version' => 'latest'] );
 		$this->s3_client->registerStreamWrapper();
 	}
 
@@ -254,12 +254,13 @@ class S3_Stream_Wrapper {
 	public function filter_upload_dir( $params ) {
 		$pos               = stripos( $params['path'], constant( 'WP_CONTENT_DIR' ) );
 		$params['path']    = substr_replace( $params['path'],
-			self::PROTOCOL . '://'  . $this->s3_bucket . 'wp-content',
+			self::PROTOCOL . '://'  . trailingslashit($this->s3_bucket) . 'wp-content',
 			$pos,
 		strlen( constant( 'WP_CONTENT_DIR' ) ) );
 		$params['basedir'] = substr_replace( $params['basedir'],
 			self::PROTOCOL . '://' . trailingslashit( $this->s3_bucket ) . 'wp-content',
 			$pos,
+		strlen( constant( 'WP_CONTENT_DIR' ) ) );
 
 		return $params;
 	}
@@ -295,7 +296,7 @@ class S3_Stream_Wrapper {
 	}
 
 	/**
-	 * Check if file path in within the allowed length.
+	 * Check if file path is within the allowed length.
 	 *
 	 * @param  string  Path starting with /wp-content/uploads
 	 */

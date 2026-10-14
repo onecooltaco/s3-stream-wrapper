@@ -9,7 +9,7 @@
  * Includes filters shamelessly taken from:
  * https://github.com/Automattic/vip-go-mu-plugins/blob/develop/files/class-vip-filesystem.php
  *
- * @link       https://local.local
+ * @link       https://github.com/onecooltaco/s3-stream-wrapper
  * @since      1.0.0
  *
  * @package    S3_Stream_Wrapper

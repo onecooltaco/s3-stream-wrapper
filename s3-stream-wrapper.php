@@ -8,17 +8,17 @@
  * registers the activation and deactivation functions, and defines a function
  * that starts the plugin.
  *
- * @link              https://local.local
+ * @link              https://github.com/onecooltaco/s3-stream-wrapper
  * @since             1.0.0
  * @package           S3_Stream_Wrapper
  *
  * @wordpress-plugin
  * Plugin Name:       S3 Stream Wrapper
- * Plugin URI:        https://local.local
+ * Plugin URI:        https://github.com/onecooltaco/s3-stream-wrapper
  * Description:       Write files to AWS S3 using the SDK stream wrapper.
  * Version:           1.0.0
  * Author:            Jeremy Leggat
- * Author URI:        https://local.local/
+ * Author URI:        https://github.com/onecooltaco
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       s3-stream-wrapper

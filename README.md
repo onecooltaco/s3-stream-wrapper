@@ -54,4 +54,4 @@ Install all dependencies with `composer install`. The repository includes WordPr
 
 ## License
 
-GPL-2.0-or-later.
+GPL-2.0-or-later. See [`LICENSE`](LICENSE).

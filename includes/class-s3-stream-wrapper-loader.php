@@ -3,7 +3,7 @@
 /**
  * Register all actions and filters for the plugin
  *
- * @link       https://local.local
+ * @link       https://github.com/onecooltaco/s3-stream-wrapper
  * @since      1.0.0
  *
  * @package    S3_Stream_Wrapper
